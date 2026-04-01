@@ -1,0 +1,16 @@
+ffmpeg -f v4l2 -input_format mjpeg -framerate 30 -video_size 1280x720 -i /dev/video0 ~/video.mp4
+
+-f v4l2	Use the Video4Linux2 camera interface
+-input_format mjpeg	Tells ffmpeg to expect MJPEG from your USB camera
+-framerate 30	Records at 30 frames per second
+-video_size 1280x720	720p resolution
+-i /dev/video0	Input device (your camera)
+~/video.mp4	Output video file in your home directory
+
+to download in linux pc
+scp <hostname>@<ip>:/home/<hostname>/video.mp4 ~/Downloads/
+
+ffmpeg -f v4l2 -input_format mjpeg -framerate 30 -video_size 1280x720 -i /dev/video0 -t 2 ~/short_video.mp4 (-t 2 → record for 2 seconds
+-input_format mjpeg → match your camera format
+-video_size 1280x720 → 720p video
+saves file to /home/alarm/short_video.mp4)
